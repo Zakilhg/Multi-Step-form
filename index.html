@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/scripts/script.js" defer></script>
+    <title>Multi Form</title>
+  </head>
+  <body>
+    <main class="main_container">
+      <div class="side__bar">
+        <div class="side__bar--items">
+          <h3>1</h3>
+          <div class="side__bar--items--text">
+            <p>Step 1</p>
+            <p>Your info</p>
+          </div>
+        </div>
+        <div class="side__bar--items">
+          <h3>2</h3>
+          <div class="side__bar--items--text">
+            <p>Step 2</p>
+            <p>Select plan</p>
+          </div>
+        </div>
+        <div class="side__bar--items">
+          <h3>3</h3>
+          <div class="side__bar--items--text">
+            <p>Step 3</p>
+            <p>Add-ons</p>
+          </div>
+        </div>
+        <div class="side__bar--items">
+          <h3>4</h3>
+          <div class="side__bar--items--text">
+            <p>Step 4</p>
+            <p>Summary</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------Step 1----------------------------------------------- -->
+
+      <div class="right__side">
+        <!---- ------- -->
+
+        <div class="your__info active">
+        <div class="right__side--header">
+          <h1>Personal info</h1>
+          <p>Please provide your name,email address,and phone number.</p>
+        </div>
+        <form action="index.php" method="POST" class="right__side--form active">
+          <div class="right__side--form--items">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="e.g Stephen King"
+              required
+            />
+          </div>
+          <div class="right__side--form--items">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="e.g stephenking@gmail.com"
+              required
+            />
+          </div>
+          <div class="right__side--form--items">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="Enter your phone"
+              required
+            />
+          </div>
+        </form>
+      </div>
+
+      <!-- -------------------------Step 2----------------------------------------------- -->
+      <div class="plan">
+        <div class="right__side--header">
+          <h1>Select Your plan</h1>
+          <p>You have the option of monthly or yearly billing.</p>
+        </div>
+        <div class="plan__container">
+          <div class="plan__options">
+            <div class="plan__option">
+              <img src="./assets/images/icon-arcade.svg" alt="arcade" />
+              <h5>Arcade</h5>
+              <p>$9/mo</p>
+            </div>
+            <div class="plan__option">
+              <img src="./assets/images/icon-advanced.svg" alt="advanced" />
+              <h5>Arcade</h5>
+              <p>$12/mo</p>
+            </div>
+            <div class="plan__option">
+              <img src="./assets/images/icon-pro.svg" alt="pro" />
+              <h5>Pro</h5>
+              <p>$15/mo</p>
+            </div>
+          </div>
+
+          <div class="plan__duration">
+            <p>Monthly</p>
+            <label for="plan" class="plan__toggle__container"
+              ><input
+                class="plan__toggle"
+                type="checkbox"
+                name="plan"
+                id="plan" />
+              <div class="plan__toggle--fill"></div
+            ></label>
+            <p>Yearly</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------------------------------------Step 2--------------------------------------------- -->
+
+      <!-- ---------------------------------------Step 3--------------------------------------------- -->
+
+      <div class="add_ons">
+        <div class="right__side--header">
+          <h1>Pick Add ons</h1>
+          <p>Add-ons help enhance your gaming experience.</p>
+        </div>
+
+        <div class="add_ons__container">
+          <label for="onlineService" class="add_ons__item">
+            <input type="checkbox" id="onlineService" />
+            <div class="add_ons--text">
+              <h4>Online service</h4>
+              <p>Access to multiplayer games</p>
+            </div>
+            <p class="add_ons--cost">+$1/mo</p>
+          </label>
+
+          <label for="largeStorage" class="add_ons__item">
+            <input type="checkbox" id="largeStorage" />
+            <div class="add_ons--text">
+              <h4>Large storage</h4>
+              <p>Extra 1TB of cloud save</p>
+            </div>
+            <p class="add_ons--cost">+$2/mo</p>
+          </label>
+
+          <label for="customizableProfile" class="add_ons__item">
+            <input type="checkbox" id="customizableProfile" />
+            <div class="add_ons--text">
+              <h4>Customizable profile</h4>
+              <p>custom theme on our profile</p>
+            </div>
+            <p class="add_ons--cost">+$2/mo</p>
+          </label>
+        </div>
+      </div>
+
+      <!-- ---------------------------------------Step 3--------------------------------------------- -->
+
+      <!-- ---------------------------------------Step 4--------------------------------------------- -->
+      <div class="summary">
+        <div class="right__side--header">
+          <h1>Finishing up
+            </h1>
+          <p>Double-check everything looks 0K before confirming.</p>
+        </div>
+        <div class="summary__container">
+          <div class="summary__content">
+            <div class="summary__plan">
+              <div class="summary__plan--title">
+                <h3>Pro Plan (Monthly)</h3>
+                <a href="#">Change</a>
+              </div>
+              <div class="summary__plan--cost">
+                <h3>$9/mo</h3>
+              </div>
+            </div>
+            <hr />
+            <div class="summary__add_ons">
+              <p>Online service</p>
+              <p>+$1/mo</p>
+            </div>
+            <div class="summary__add_ons">
+              <p>Larger storage</p>
+              <p>+$2/mo</p>
+            </div>
+          </div>
+          <div class="summary__total">
+            <p>Total (per month)</p>
+            <h3>+$12/mo</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------------------------------------Step 4--------------------------------------------- -->
+
+      <!-- Last Step Thank u -->
+
+      <div class="thank__you">
+        <img src="./assets/images/icon-thank-you.svg" alt="thank u" />
+        <h2>Thank you!</h2>
+        <p>
+          Thanks for confirming your subscription! We hope you have fun using
+          our platform. If you ever need support, please feel free to email us
+          at support@loremgaming.com.
+        </p>
+      </div>
+
+
+    <div class="right__side--buttons">
+      <button class="buttons--back">GoBack</button>
+      <button class="buttons--next">Next Step</button>
+    </div>
+      <!-- Last Step Thank u -->
+    </main>
+    
+  </body>
+</html>
