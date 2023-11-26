@@ -194,6 +194,12 @@ body {
   border-radius: 15px;
   cursor: pointer;
 }
+
+.plan__option.active {
+  border: solid 1px #483eff;
+  background-color: #f8f9fe;
+}
+
 .plan__options img {
   height: 50px;
   width: 50px;
@@ -210,6 +216,17 @@ body {
   font-size: 0.9rem;
   font-weight: 400;
   color: #a7a7a7;
+}
+
+.plan__option .extra__months {
+  display: none;
+  color: #483eff;
+  font-weight: 500;
+  margin-top: 5px;
+  font-size: 15px;
+}
+.plan__option .extra__months.active {
+  display: block;
 }
 
 .plan__duration {
@@ -235,6 +252,7 @@ body {
   background-color: #00265e;
   height: 100%;
   border-radius: 500px;
+  cursor: pointer;
 }
 .plan__toggle--fill::after {
   position: absolute;
@@ -291,9 +309,10 @@ body {
   border-radius: 15px;
   border: solid 1px #a7a7a7;
   cursor: pointer;
+  background-color: #fff;
 }
 
-.add_ons__item--active {
+.add_ons__item.active {
   border: solid 1px #483eff;
   background-color: #f8f9fe;
 }
