@@ -14,13 +14,23 @@ const planContainerEl = document.querySelector(".plan__container");
 const planOptionsEl = document.querySelectorAll(
   ".plan__options > .plan__option"
 );
+const addOneCostEl = document.querySelectorAll(".add_ons--cost");
+
 const priceEL = planContainerEl.querySelectorAll(".plan__option > .price");
 const planDurationEl = document.querySelector("#plan");
 const summaryPlanCostEl = document.querySelector(".summary__plan--cost h3");
 const summaryPlanOptionEl = document.querySelector(".summary__plan--title h3");
-console.log(typeof priceEL);
+const summaryAddons = document.querySelector(".summary__content");
+const summaryTotalEl = document.querySelector(".summary__total h3");
 
 // --------------Functions------------ //
+
+addEventListener("DOMContentLoaded", (event) => {
+  planDurationEl.checked = true;
+  checkboxesEl.forEach((item) => {
+    item.checked = false;
+  });
+});
 
 // Function to handle plan changes
 
@@ -29,6 +39,7 @@ planDurationEl.onchange = () => {
     const getPrice = (multiplier) => {
       const cost = Number(
         item.innerText
+          .replace("+", "")
           .replace("$", "")
           .replace("/mo", "")
           .replace("/yr", "")
@@ -37,6 +48,10 @@ planDurationEl.onchange = () => {
       return cost * multiplier;
     };
 
+    const extraMonths = item.parentElement.querySelectorAll(".extra__months");
+    extraMonths.forEach((extra) => {
+      extra.classList.toggle("active");
+    });
     if (planDurationEl.checked) {
       const monthlyPrice = getPrice(1 / 10);
       item.innerText = `$${monthlyPrice}/mo`;
@@ -45,12 +60,34 @@ planDurationEl.onchange = () => {
       item.innerText = `$${yearlyPrice}/yr`;
     }
   });
+
+  planOptionsEl.forEach((item) => {
+    if (item.classList.contains("active")) {
+      item.click();
+    }
+  });
 };
 
 // Function to handle checkbox changes
 checkboxesEl.forEach((checkbox) => {
   checkbox.addEventListener("change", function () {
     const label = this.parentElement;
+    const addName = label.querySelector("h4").innerText;
+    const addPrice = label
+      .querySelector(".add_ons--cost")
+      .innerText.replace("+$", "")
+      .replace("/mo", "")
+      .replace("/yr", "")
+      .trim();
+
+    const htmlEl = `<div class="summary__add_ons">
+                        <p>${addName}</p>
+                        <p>+$${addPrice}/mo</p>
+                  </div>`;
+    this.checked
+      ? summaryAddons.insertAdjacentHTML("beforeend", htmlEl)
+      : summaryAddons.removeChild(summaryAddons.lastChild);
+
     label.classList.toggle("active");
   });
 });
@@ -63,6 +100,10 @@ planOptionsEl.forEach((item) => {
       item.classList.remove("active");
     });
     item.classList.add("active");
+    const planSelected = item.innerText.split("\n").filter((str) => str !== "");
+    console.log(planSelected);
+    summaryPlanOptionEl.innerText = planSelected[0];
+    summaryPlanCostEl.innerText = planSelected[planSelected.length - 1];
   });
 });
 

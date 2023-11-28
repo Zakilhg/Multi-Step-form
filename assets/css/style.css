@@ -224,6 +224,7 @@ body {
   font-weight: 500;
   margin-top: 5px;
   font-size: 15px;
+  order: 4;
 }
 .plan__option .extra__months.active {
   display: block;
